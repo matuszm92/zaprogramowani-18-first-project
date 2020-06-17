@@ -8,6 +8,9 @@ public class Distance {
     private float meters;
 
     private Distance(float meters) {
+        if(meters <= 0f) {
+            throw new IllegalArgumentException();
+        }
         this.meters = meters;
     }
 

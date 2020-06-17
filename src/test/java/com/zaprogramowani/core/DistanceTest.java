@@ -47,5 +47,14 @@ public class DistanceTest {
         float expected = 19.68505f;
         Assert.assertEquals(expected, result, 0f);
     }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void shouldThrowIAExceptionWhenDistanceIsLessOrEqZero() {
+        // given
+        float meters = -1f;
+
+        // when
+        Distance.ofMeters(meters);
+    }
     
 }
