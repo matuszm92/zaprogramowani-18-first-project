@@ -6,7 +6,7 @@ public class Distance {
 
     private float meters;
 
-    public Distance(float meters) {
+    private Distance(float meters) {
         this.meters = meters;
     }
 
@@ -16,6 +16,14 @@ public class Distance {
     
     public float asInches() {
         return meters * METERS_TO_INCHES_RATIO;
+    }
+
+    public static Distance ofInches(float inches) {
+        return new Distance(inches / METERS_TO_INCHES_RATIO);
+    }
+
+    public static Distance ofMeters(float meters) {
+        return new Distance(meters);
     }
 
 }

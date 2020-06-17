@@ -5,24 +5,40 @@ import org.junit.Test;
 
 public class DistanceTest {
  
+    private static final float RESULT_DELTA = 0f;
+
     @Test
     public void shouldCreateDistanceFromMeters() {
         // given
         float meters = 0.5f;
 
         // when
-        Distance result = new Distance(meters);
+        Distance result = Distance.ofMeters(meters);
 
         // then
         Assert.assertNotNull(result);
-        Assert.assertEquals(meters, result.asMeters(), 0f);
+        Assert.assertEquals(meters, result.asMeters(), RESULT_DELTA);
     }
 
     @Test
-    public void shouldReturnDistanceAsInches() {
+    public void shouldReturnDistanceFromInchesAsMeters() {
+        // given
+        float inches = 10f;
+
+        // when
+        Distance result = Distance.ofInches(inches);
+
+        // then
+        float expected = 0.2539999f;
+        Assert.assertNotNull(result);
+        Assert.assertEquals(expected, result.asMeters(), 0f);
+    }
+
+    @Test
+    public void shouldReturnDistanceFromMetersAsInches() {
         // given
         float meters = 0.5f;
-        Distance distance = new Distance(meters);
+        Distance distance = Distance.ofMeters(meters);
 
         // when
         float result = distance.asInches();
