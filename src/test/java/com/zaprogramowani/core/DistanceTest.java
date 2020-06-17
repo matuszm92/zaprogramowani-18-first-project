@@ -15,7 +15,21 @@ public class DistanceTest {
 
         // then
         Assert.assertNotNull(result);
-        Assert.assertEquals(meters, result.getMeters(), 0f);
+        Assert.assertEquals(meters, result.asMeters(), 0f);
+    }
+
+    @Test
+    public void shouldReturnDistanceAsInches() {
+        // given
+        float meters = 0.5f;
+        Distance distance = new Distance(meters);
+
+        // when
+        float result = distance.asInches();
+
+        // then
+        float expected = 19.68505f;
+        Assert.assertEquals(expected, result, 0f);
     }
     
 }

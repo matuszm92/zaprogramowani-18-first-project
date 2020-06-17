@@ -8,6 +8,6 @@ import com.zaprogramowani.core.Distance;
  */
 public class App {
     public static void main(String[] args) {
-        System.out.println(new Distance(1f).getMeters());
+        System.out.println(new Distance(1f).asMeters());
     }
 }
